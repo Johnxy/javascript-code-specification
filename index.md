@@ -72,7 +72,6 @@ function showName(name = "johnxy") {
 
 一个函数的必要说明可以帮助不同的代码维护人员快速了解函数作用，从而提高团队效率。另外，符合规范的编写，可以快速生成API供其他开发人员查阅，方便复用代码。
 ```javascript
-
 /**
  * 设置用户信息
  * @param object info 用户基本信息
@@ -87,4 +86,58 @@ function setUserInfo(object) {
   this.age = object.age
 }
 ```
+# 三、代码书写规范
+
+## 1、空格约定
+
+- 默认缩进方案采用“两个空格”方案，这是业界大部分团队采用的方式，所以请在IDE里设置好，以方便做自动格式化，当然你也可以用一些自动化的方式来处理，如：安装一些现成的插件。
+- 函数方法定义的花括号前添加一个空格
+- 多个参数传递分隔的逗号后添加一个空格
+- 对象用冒号前后各添加一个空格
+
+常见示例代码如下：
+
+```javascript
+/**
+ * 设置用户信息
+ * @param object info 用户基本信息
+ * @param string info.name  用户姓名
+ * @param number info.age   用户年龄
+ * @callback function cb    初始化完成的回调方法
+ * @description 备注一些注意事项
+ * @example
+ *   setUserInfo({name : "Johnxy", age : 18})
+ */
+ function setUserInfo(object, cb) {
+  this.name = object.name
+  this.age = object.age
+  cb && cb(this)
+}
+
+setUserInfo({name : "Johnxy", age : 18})
+ ```
+## 2、换行约定
+
+为让你的代码好看，请设置80个字符后自动换行，这样方便阅读，在大部分场景下是不会出现这种超长的链式调用的，如果有请在每个调用前做换行处理。如：
+```javascript
+
+// 不好的示例：这段注释非常长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+
+/** 好的示例：这段注释非常长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+ *  长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
+ */
+
+// 不好的示例
+functionA().functionB().functionC().functionD().functionE().functionF()
+
+// 好的示例
+functionA()
+  .functionB()
+    .functionC()
+      .functionD()
+        .functionE()
+          .functionF()
+          
+```
+
 
