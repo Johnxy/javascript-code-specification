@@ -23,7 +23,7 @@ const BASIC_CONFIG = {}
 函数名和变量名类似，采用比较直观的“小驼峰命名法”来编写，如：
 ```javascript
 function sayHi() {
-  console.log("Hi!Johnxy.");
+  console.log("Hi!Johnxy.")
 }
 
 sayHi()
@@ -35,12 +35,12 @@ sayHi()
 ```javascript
 class User {
   constructor(name) {
-    this.name = name;
-    return this;
+    this.name = name
+    return this
   }
   
   sayHi() {
-    console.log("Hi!" + this.name + ".");
+    console.log("Hi!" + this.name + ".")
   }
 }
 
@@ -64,7 +64,7 @@ let userTotalNum = 0
  * @param string name 缺省值为johnxy
  */
 function showName(name = "johnxy") {
-  console.log("Hi!" + name);
+  console.log("Hi!" + name)
 }
 ```
 
