@@ -140,10 +140,11 @@ class user {
 
 ## 1、常规注释
 
-- 单行注释，采用“//”的注释方式，用一个空格和内容隔开，如：
+- 单行注释，采用“//”的注释方式，用一个空格和内容隔开，可放置在要注释内容的前面或后面，如：
 ```javascript
-// 用来记录用户个数
-let userTotalNum = 0
+// 用来记录用户数量
+let totalUserNum = 0
+let userVipLevel = 1 // 用户VIP等级
 ```
 - 多行注释，采用“/*注释内容*/”的方式，注释内容前用一个空格隔开，如：
 ```javascript
@@ -232,3 +233,9 @@ functionA()
 - IDE格式法：通过设置一些配置然后通过格式化，如：jetBrains系列IDE提供了[语法工具检测说明>>](http://www.jetbrains.com/help/phpstorm/2016.1/eslint.html)
 - 工程格式化：如果你的项目是工程化的，那么用npm装下eslint即可轻松实现格式校验的功能，当然你也可以通过[Prettier](https://prettier.io/docs/en/options.html)工具来释放你的手动格式化工作。
 
+## 4、模块化
+
+- 尽量不污染全局变量，尽量按照AMD或CMD规范来实现你的代码。
+
+## 5、函数式编程
+在业务场景允许范围内尽量多尝试函数式编程可以提高代码的灵活性和复用性。
