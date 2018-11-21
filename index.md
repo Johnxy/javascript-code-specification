@@ -228,6 +228,7 @@ functionA()
           
 ```
 ## 3、格式化代码工具
-- IDE格式法：通过设置一些配置然后通过格式化，这里拿PhpStorm为例截图说明一下。
 
+- IDE格式法：通过设置一些配置然后通过格式化，如：jetBrains系列IDE提供了[语法工具检测说明>>](http://www.jetbrains.com/help/phpstorm/2016.1/eslint.html)
+- 工程格式化：如果你的项目是工程化的，那么用npm装下eslint即可轻松实现格式校验的功能，当然你也可以通过[Prettier](https://prettier.io/docs/en/options.html)工具来释放你的手动格式化工作。
 
