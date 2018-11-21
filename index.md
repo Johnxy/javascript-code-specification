@@ -4,8 +4,12 @@
 # 一、命名规范
 
 ## 1、变量名
+- 采用比较直观的 **“小驼峰命名法”**（即：首字母小写）来编写，绝大部分场景均以【名词】为准，前缀可以加【形容词】;
+- 变量名包括全局变量、局部变量、函数的传参等，必须是能表示某种含义的 **英文** ，禁止使用拼音，
+- 禁止使用保留字，保留字列表如图所示
+![保留字](https://github.com/Johnxy/javascript-code-specification/blob/master/reservedWord.jpg)
 
-变量名包括全局变量、局部变量、函数的传参等，采用比较直观的“小驼峰命名法”（即：首字母小写）来编写，绝大部分场景均以【名词】为准，前缀可以加【形容词】，如：
+如：
 
 ```javascript
 
@@ -85,9 +89,10 @@ function getUserInfoById(id) {
 
 ```
 
-## 4、构造函数及类名
+## 4、构造函数及类
 
-采用帕斯卡命名法，这样写的好处：与普通函数做一些区分；让使用者很明确使用方式。使用这种命名方式的绝大部分场景也为【名词】，如：
+构造函数及类名采用帕斯卡命名法，这样写的好处：与普通函数做一些区分；让使用者很明确使用方式。使用这种命名方式的绝大部分场景也为【名词】，类的私有属性或私有方法建议采用下划线加小驼峰命名法，如：
+
 ```javascript
 // 正确示例
 
@@ -101,18 +106,31 @@ function User(name) {
 
 // 类
 class User {
+  
   // 类的构造方法
   constructor(name = "匿名") {
     this.name = name
     return this
   }
   
+  // 伪私有方法，这里只做样例说明，ES6本身不提供私有属性和私有方法
+  _getAge() {
+    return 18
+  } 
+  
   sayHi() {
     console.log("Hi!" + this.name + ".")
   }
+  
+  showAge() {
+    console.log(this.name + " is " + this._getAge() + " years old.")
+  }
+  
 }
 
-new User("Johnxy").sayHi()
+var johnxy = new User("Johnxy")
+johnxy.sayHi()
+johnxy.showAge()
 
 // 错误示例
 function user(name) {
@@ -210,14 +228,11 @@ setUserInfo({name: "Johnxy", age: 18})
 为让你的代码好看，请设置80个字符后自动换行，这样方便阅读，在大部分场景下是不会出现这种超长的链式调用的，如果有请在每个调用前做换行处理。如：
 ```javascript
 
-// 不好的示例：这段注释非常长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
-
 /** 好的示例：这段注释非常长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
  *  长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
  */
 
-// 不好的示例
-functionA().functionB().functionC().functionD().functionE().functionF()
+// 不好的示例：这段注释非常长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长
 
 // 好的示例
 functionA()
@@ -227,15 +242,26 @@ functionA()
         .functionE()
           .functionF()
           
+// 不好的示例
+functionA().functionB().functionC().functionD().functionE().functionF()       
 ```
-## 3、格式化代码工具
+## 3、花括号约定
+```javascript
+// 统一采用不换行的方式
+if (isVip) {
+  
+}
+
+```
+
+## 4、格式化代码工具
 
 - IDE格式法：通过设置一些配置然后通过格式化，如：jetBrains系列IDE提供了[语法工具检测说明>>](http://www.jetbrains.com/help/phpstorm/2016.1/eslint.html)
 - 工程格式化：如果你的项目是工程化的，那么用npm装下eslint即可轻松实现格式校验的功能，当然你也可以通过[Prettier](https://prettier.io/docs/en/options.html)工具来释放你的手动格式化工作。
 
-## 4、模块化
+## 5、模块化
 
-- 尽量不污染全局变量，尽量按照AMD或CMD规范来实现你的代码。
+尽量不污染全局变量，按照 [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) 规范或 [CMD](https://github.com/seajs/seajs/issues/242) 规范来实现你的代码。
 
-## 5、函数式编程
+## 6、函数式编程
 在业务场景允许范围内尽量多尝试函数式编程可以提高代码的灵活性和复用性。
