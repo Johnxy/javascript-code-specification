@@ -167,9 +167,9 @@ function showName(name = "johnxy") {
  * @example
  *   setUserInfo({name : "Johnxy", age : 18})
  */
-function setUserInfo(object) {
-  this.name = object.name
-  this.age = object.age
+function setUserInfo(info) {
+  this.name = info.name
+  this.age = info.age
 }
 ```
 # 三、代码书写规范
