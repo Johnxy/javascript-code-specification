@@ -5,36 +5,103 @@
 
 ## 1、变量名
 
-变量名包括全局变量、局部变量、函数的传参等，采用比较直观的“小驼峰命名法”（即：首字母小写）来编写，如：
+变量名包括全局变量、局部变量、函数的传参等，采用比较直观的“小驼峰命名法”（即：首字母小写）来编写，绝大部分场景均以【名词】为准，前缀可以加【形容词】，如：
 
 ```javascript
-let myName = "Johnxy"
+
+// 正确示例
+let userName = "Johnxy"
+let rankList = ["Johnxy", "Rye"]
+
+// 错误示例
+let queryUserName = "Johnxy"
+let getRankList = ["Johnxy", "Rye"]
+
 ```
 
 ## 2、常量名
 
-采用全大写的下划线命名方式，如：
+采用全大写的下划线命名方式，使用这种命名方式的绝大部分场景也为【形容词】+【名词】，如：
 ```javascript
+
+// 正确示例
 const BASIC_CONFIG = {}
+
+// 错误示例
+const Basic_Config = {}
+
 ```
 
-## 3、函数名
+## 3、常用函数名
 
-函数名和变量名类似，采用比较直观的“小驼峰命名法”来编写，如：
+函数名（构造函数除外）和变量名类似，采用比较直观的“小驼峰命名法”来编写，使用这种命名方式的绝大部分场景也为【动词】+【名词】，如：
 ```javascript
+// 正确示例
 function sayHi() {
   console.log("Hi!Johnxy.")
 }
 
-sayHi()
+// 错误示例
+function SayHi() {
+  console.log("Hi!Johnxy.")
+}
+```
+常用动词前缀
+
+|前缀|返回类型|说明|
+|---|---|---|
+|is|boolean|常用于“是否”的判断|
+|has|boolean|常用于“有无”的判断|
+|can|boolean|常用于“能否”的判断|
+|set|boolean|操作结果，也可不返回或通过回调方法接受结果|
+|get|mixed|常用于返回一些数据，有时也通过回调的方式返回结果|
+
+```javascript
+// 正确示例
+function isVip() {
+  // your code
+  return true
+}
+
+function hasTail() {
+  // your code
+  return true
+}
+
+function canFly() {
+  // your code
+  return true
+}
+
+function setUserInfo(info) {
+  // your code
+  return true
+}
+
+function getUserInfoById(id) {
+  // your code
+  return info
+}
+
 ```
 
 ## 4、构造函数及类名
 
-采用帕斯卡命名法，这样可以与普通函数做一些区分，如：
+采用帕斯卡命名法，这样写的好处：与普通函数做一些区分；让使用者很明确使用方式。使用这种命名方式的绝大部分场景也为【名词】，如：
 ```javascript
+// 正确示例
+
+// 构造函数
+function User(name) {
+  this.name = !!name ? name : "匿名"
+  this.sayHi = function(){
+    console.log("Hi!" + this.name + ".")
+  }
+}
+
+// 类
 class User {
-  constructor(name) {
+  constructor(name = "匿名") {
     this.name = name
     return this
   }
@@ -45,6 +112,25 @@ class User {
 }
 
 new User("Johnxy").sayHi()
+
+// 错误示例
+function user(name) {
+  this.name = !!name ? name : "匿名"
+  this.sayHi = function(){
+    console.log("Hi!" + this.name + ".")
+  }
+}
+class user {
+  constructor(name = "匿名") {
+    this.name = name
+    return this
+  }
+  
+  sayHi() {
+    console.log("Hi!" + this.name + ".")
+  }
+}
+
 ```
 
 
@@ -60,8 +146,8 @@ let userTotalNum = 0
 - 多行注释，采用“/*注释内容*/”的方式，注释内容前用一个空格隔开，如：
 ```javascript
 /**
- * 显示我的名字
- * @param string name 缺省值为johnxy
+ * 显示名字
+ * @param string name 用户名字，缺省值为johnxy
  */
 function showName(name = "johnxy") {
   console.log("Hi!" + name)
