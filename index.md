@@ -175,16 +175,31 @@ function showName(name = "johnxy") {
 }
 ```
 
-## 2、函数必要的注释说明
+## 2、可文档化的注释说明
 
 一个函数的必要说明可以帮助不同的代码维护人员快速了解函数作用，从而提高团队效率。另外，符合规范的编写，可以快速生成API供其他开发人员查阅，方便复用代码。
+
+- 文件头部注释需规范
+
+```javascript
+/**
+ * @fileOverview 文件描述
+ * @author Johnxy <johnxy@qq.com>
+ * @version 1.0.0
+ */
+ ```
+ 
+ - 函数注释规范
+ 
 ```javascript
 /**
  * 设置用户信息
- * @param {object} info 用户基本信息
+ * @param {object} info       用户基本信息
  * @param {string} info.name  用户姓名
  * @param {number} info.age   用户年龄
- * @description 备注一些注意事项
+ * @description               备注一些注意事项
+ * @deprecated                即将回收的接口，不建议使用
+ * @requires Zepto            接口依赖说明
  * @example
  *   setUserInfo({name: "Johnxy", age: 18})
  */
@@ -193,6 +208,8 @@ function setUserInfo(info) {
   this.age = info.age
 }
 ```
+更多注释说明，可查阅[jsdoc文档](http://usejsdoc.org/index.html)
+
 # 三、代码书写规范
 
 ## 1、空格约定
