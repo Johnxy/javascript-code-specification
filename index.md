@@ -167,7 +167,7 @@ function showName(name = "johnxy") {
  * @param {number} info.age   用户年龄
  * @description 备注一些注意事项
  * @example
- *   setUserInfo({name : "Johnxy", age : 18})
+ *   setUserInfo({name: "Johnxy", age: 18})
  */
 function setUserInfo(info) {
   this.name = info.name
@@ -194,7 +194,7 @@ function setUserInfo(info) {
  * @param {function} cb    初始化完成的回调方法
  * @description 备注一些注意事项
  * @example
- *   setUserInfo({name : "Johnxy", age : 18})
+ *   setUserInfo({name: "Johnxy", age: 18})
  */
  function setUserInfo(object, cb) {
   this.name = object.name
@@ -202,7 +202,7 @@ function setUserInfo(info) {
   cb && cb(this)
 }
 
-setUserInfo({name : "Johnxy", age : 18})
+setUserInfo({name: "Johnxy", age: 18})
  ```
 ## 2、换行约定
 
@@ -227,5 +227,7 @@ functionA()
           .functionF()
           
 ```
+## 3、格式化代码工具
+- IDE格式法：通过设置一些配置然后通过格式化，这里拿PhpStorm为例截图说明一下。
 
 
