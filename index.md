@@ -101,6 +101,7 @@ function User(name) {
 
 // 类
 class User {
+  // 类的构造方法
   constructor(name = "匿名") {
     this.name = name
     return this
@@ -121,6 +122,7 @@ function user(name) {
   }
 }
 class user {
+  // 类的构造方法
   constructor(name = "匿名") {
     this.name = name
     return this
@@ -147,7 +149,7 @@ let userTotalNum = 0
 ```javascript
 /**
  * 显示名字
- * @param string name 用户名字，缺省值为johnxy
+ * @param {string} name 用户名字，缺省值为johnxy
  */
 function showName(name = "johnxy") {
   console.log("Hi!" + name)
@@ -160,9 +162,9 @@ function showName(name = "johnxy") {
 ```javascript
 /**
  * 设置用户信息
- * @param object info 用户基本信息
- * @param string info.name  用户姓名
- * @param number info.age   用户年龄
+ * @param {object} info 用户基本信息
+ * @param {string} info.name  用户姓名
+ * @param {number} info.age   用户年龄
  * @description 备注一些注意事项
  * @example
  *   setUserInfo({name : "Johnxy", age : 18})
@@ -186,10 +188,10 @@ function setUserInfo(info) {
 ```javascript
 /**
  * 设置用户信息
- * @param object info 用户基本信息
- * @param string info.name  用户姓名
- * @param number info.age   用户年龄
- * @callback function cb    初始化完成的回调方法
+ * @param {object} info 用户基本信息
+ * @param {string} info.name  用户姓名
+ * @param {number} info.age   用户年龄
+ * @param {function} cb    初始化完成的回调方法
  * @description 备注一些注意事项
  * @example
  *   setUserInfo({name : "Johnxy", age : 18})
